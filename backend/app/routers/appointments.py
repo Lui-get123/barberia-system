@@ -274,7 +274,10 @@ def get_availability(
 
     while cursor + duration <= day_end:
         if cursor >= now:
-            overlap = any(b.start_at < cursor + duration and b.end_at > cursor for b in booked)
+            overlap = any(
+                _ensure_aware(b.start_at) < cursor + duration and _ensure_aware(b.end_at) > cursor
+                for b in booked
+            )
             if not overlap:
                 slots.append(AvailabilitySlot(start_at=cursor, end_at=cursor + duration))
         cursor += granularity

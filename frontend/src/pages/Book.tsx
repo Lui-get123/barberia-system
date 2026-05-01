@@ -53,6 +53,7 @@ export default function Book() {
       }),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['my-appointments'] })
+      qc.invalidateQueries({ queryKey: ['availability'] })
       toast.success('¡Cita reservada!')
       navigate('/my-appointments')
     },
