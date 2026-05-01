@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 36 100% 45%;
+    --primary-foreground: 24 30% 10%;
+    --secondary: 24 6% 95%;
+    --secondary-foreground: 24 10% 12%;
+    --muted: 24 6% 95%;
+    --muted-foreground: 24 8% 40%;
+    --accent: 36 100% 95%;
+    --accent-foreground: 24 30% 10%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 8% 88%;
+    --input: 24 8% 88%;
+    --ring: 36 100% 45%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 24 14% 7%;
+    --foreground: 40 30% 96%;
+    --card: 24 14% 10%;
+    --card-foreground: 40 30% 96%;
+    --popover: 24 14% 10%;
+    --popover-foreground: 40 30% 96%;
+    --primary: 36 100% 55%;
+    --primary-foreground: 24 30% 10%;
+    --secondary: 24 10% 16%;
+    --secondary-foreground: 40 30% 96%;
+    --muted: 24 10% 16%;
+    --muted-foreground: 24 8% 65%;
+    --accent: 24 10% 18%;
+    --accent-foreground: 40 30% 96%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 10% 18%;
+    --input: 24 10% 18%;
+    --ring: 36 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .dark .glass {
+    background: rgba(28, 25, 23, 0.6);
+  }
+  .gradient-gold {
+    background: linear-gradient(135deg, #ffbb1a 0%, #e6a300 50%, #b37d00 100%);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #ffbb1a 0%, #e6a300 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+}
